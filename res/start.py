@@ -1,6 +1,7 @@
 import os
 import configparser
 import json
+import keyboard
 
 config = configparser.ConfigParser()
 config.read('res/config.ini')
@@ -8,6 +9,8 @@ config.read('res/config.ini')
 content = """[Settings]
 lang="en"
 """
+
+menu="main"
 
 try:
 	lang = config['Settings']['lang']
@@ -26,7 +29,15 @@ def printname():
 	print(name)
 	print("-" * len(name))
 
+def main():
+	print(f"(Ctrl+N) {data["project"]["newproj"]}")
+	print(f"(Ctrl+O) {data["project"]["opnproj"]}")
+	#...input...
+	keyboard.add_hotkey('ctrl+n', lambda: print("test success"))
+
 def init():
 	printname()
+	if menu == "main":
+		main()
 
 init()
