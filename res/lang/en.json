@@ -8,5 +8,9 @@
 "opnproj": "Open Project",
 "exit": "Exit",
 "build": "Build"
+},
+"filemanager": {
+"selfile": "Select File:",
+"input": "Change dir or select file with number"
 }
 }
