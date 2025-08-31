@@ -80,14 +80,20 @@ def open():
 #		aframe+=1
 #		time.sleep(0.2)
 	#fneakjt
+	
 	os.system("clear")
+	filecount=0
+	fulllistedfiles=[]
 	print(Style.BRIGHT + data["filemanager"]["selfile"])
-	print("-"*12)
+	print("-"*len(data["filemanager"]["selfile"]))
 	for entry in listfiles(True):
-		print(Fore.LIGHTGREEN_EX + entry)
+		fulllistedfiles.append(entry)
+		print(f"({filecount}) " + Fore.LIGHTGREEN_EX + Style.BRIGHT + entry)
 	for entry in listfiles(False):
-		print(Fore.WHITE + entry)
-	input(data["filemanager"]["input"])
+		fulllistedfiles.append(entry)
+		print(f"({filecount}) " + Style.BRIGHT + Fore.WHITE + entry)
+	print("-"*len(data["filemanager"]["selfile"]))
+	input(data["filemanager"]["input"] + "> ")
 
 def main():
 	print(f"(N) {data["project"]["newproj"]}")
